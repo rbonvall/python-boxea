@@ -2,8 +2,8 @@
 # encoding: utf-8
 
 from __future__ import unicode_literals
-from itertools import chain, islice, izip_longest as zipl
 import sys
+from itertools import chain, islice
 from operator import itemgetter
 
 # for Py2 and Py3 compatibility
@@ -12,6 +12,10 @@ try:
 except NameError:
     def unicode(x, *args, **kwargs):
         return str(x)
+try:
+    from itertools import izip_longest as zipl
+except ImportError:
+    from itertools import zip_longest as zipl
 
 
 symbols = dict(
