@@ -2,9 +2,6 @@
 # encoding: utf-8
 
 from __future__ import unicode_literals
-import re
-import sys
-import copy
 from itertools import chain, islice, izip_longest as zipl
 from operator import itemgetter
 
