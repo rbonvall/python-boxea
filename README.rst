@@ -38,7 +38,7 @@ It can also be used as a Python module::
     │ a │
     └───┘
 
-To-do
+To do
 -----
 * Support double lines (``═══``).
 * Support thicker lines (``━━━``).
