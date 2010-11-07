@@ -17,13 +17,15 @@ except NameError:
 
 
 symbols = dict(
-   ns='│',   we='─',            NS='║',   WE='═',
    se='┌',  swe='┬',  sw='┐',   SE='╔',  SWE='╦',  SW='╗',
   nse='├', nswe='┼', nsw='┤',  NSE='╠', NSWE='╬', NSW='╣',
    ne='└',  nwe='┴',  nw='┘',   NE='╚',  NWE='╩',  NW='╝',
    sE='╒',  sWE='╤',  sW='╕',   Se='╓',  Swe='╥',  Sw='╖',
   nsE='╞', nsWE='╪', nsW='╡',  NSe='╟', NSwe='╫', NSw='╢',
    nE='╘',  nWE='╧',  nW='╛',   Ne='╙',  Nwe='╨',  Nw='╜',
+   ns='│',   we='─',            NS='║',   WE='═',
+    n='╵',    s='╷',
+    w='╴',    e='╶',
 )
 
 def flatten(lists):
