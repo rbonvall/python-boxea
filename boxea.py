@@ -5,6 +5,8 @@ from __future__ import unicode_literals
 import re
 import sys
 import copy
+from itertools import chain, islice, izip_longest as zipl
+from operator import itemgetter
 
 # for Py2 and Py3 compatibility
 try:
@@ -24,9 +26,34 @@ symbols = dict(
    nE='╘',  nWE='╧',  nW='╛',   Ne='╙',  Nwe='╨',  Nw='╜',
 )
 
+def flatten(lists):
+    return list(chain(*lists))
 
-def neighbors(s):
-    return list(s), list(s), list(s), list(s)
+
+def neighbors(text):
+    '''Return strings n, s, w and e of neighbors of text.
+
+    For a given text, return four strings of the same length,
+    whose characters are respectively the neighbors
+    above, below, to the left and to the right
+    of the corresponding character in the text.
+    '''
+
+    lines = text.splitlines(True)
+
+    n = [None for _ in lines[0]] + flatten([
+        map(itemgetter(0), islice(zipl(prev_line, line), len(line)))
+        for prev_line, line in zip(lines, lines[1:])
+    ])
+    s = flatten([
+        map(itemgetter(1), islice(zipl(line, next_line), len(line)))
+        for line, next_line in zip(lines, lines[1:])
+    ]) + [None for _ in lines[-1]]
+
+    w = flatten([[None] + list(line[:-1]) for line in lines])
+    e = flatten([list(line[1:]) + [None]  for line in lines])
+
+    return n, s, w, e
 
 def ascii_to_box(text):
     return text
