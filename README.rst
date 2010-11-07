@@ -7,7 +7,8 @@ by using `box-drawing Unicode symbols`_ (ANSI-art).
 
 Usage
 -----
-::
+The script uses standard input and output::
+
     $ cat example
     +-----+-----+
     | abc | def |
