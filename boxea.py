@@ -57,8 +57,28 @@ def neighbors(text):
 
     return n, s, w, e
 
-def ascii_to_box(text):
-    return text
+
+def ascii_to_box(text, vertical='|', horizontal='-', intersection='+'):
+    new_text_characters = []
+    for char, cn, cs, cw, ce in zip(text, *neighbors(text)):
+        new_char = ''
+        if char == vertical:
+            new_char = symbols['ns']
+        elif char == horizontal:
+            new_char = symbols['we']
+        elif char == intersection:
+            key = (('n' if cn in [intersection, vertical] else '') +
+                   ('s' if cs in [intersection, vertical] else '') +
+                   ('w' if cw in [intersection, horizontal] else '') +
+                   ('e' if ce in [intersection, horizontal] else ''))
+            new_char = symbols[key] if key else c
+        else:
+            new_char = char
+        assert len(new_char) == 1
+        new_text_characters.append(new_char)
+
+    return ''.join(new_text_characters)
+
 
 def main():
     print(ascii_to_box(unicode(sys.stdin.read(), encoding='utf-8')))
