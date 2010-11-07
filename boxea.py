@@ -31,12 +31,12 @@ def flatten(lists):
 
 
 def neighbors(text):
-    '''Return strings n, s, w and e of neighbors of text.
+    '''Return iterables n, s, w and e of neighbors of text.
 
-    For a given text, return four strings of the same length,
-    whose characters are respectively the neighbors
-    above, below, to the left and to the right
-    of the corresponding character in the text.
+    For a given text, return four character-yielding iterables that are
+    respectively the neighbors above, below, to the left and to the right of
+    the corresponding character in the text.  Inexistant neighbors are
+    represented by None.
     '''
 
     lines = text.splitlines(True)
