@@ -49,6 +49,9 @@ To do
 * Choose a license.
 
 Patches are welcome.
+Please use the `issue tracker`_ for bug reports and feature requests.
+
+.. _issue tracker: https://github.com/rbonvall/python-boxea/issues
 
 Author
 ------
