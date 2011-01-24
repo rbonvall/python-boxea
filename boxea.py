@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # encoding: utf-8
 
 from __future__ import unicode_literals
@@ -73,7 +73,7 @@ def ascii_to_box(text, vertical='|', horizontal='-', intersection='+'):
                    ('s' if cs in [intersection, vertical] else '') +
                    ('w' if cw in [intersection, horizontal] else '') +
                    ('e' if ce in [intersection, horizontal] else ''))
-            new_char = symbols[key] if key else c
+            new_char = symbols[key] if key else char
         else:
             new_char = char
         assert len(new_char) == 1
